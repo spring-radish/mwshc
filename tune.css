@@ -1,15 +1,21 @@
 @font-face {
     font-family: 'Shape Libertine';
-    src: url('assets/ShapeLibertine-Italic.woff2') format('woff2');
+    src: url('assets/ShapeLibertine.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Shape Libertine';
+    src: url('assets/subset-LibertinusSerif-Italic.woff2') format('woff2');
     font-weight: normal;
     font-style: italic;
     font-display: swap;
 }
-
 @font-face {
     font-family: 'Shape Libertine';
-    src: url('assets/ShapeLibertine.woff2') format('woff2');
-    font-weight: normal;
+    src: url('assets/subset-LibertinusSerif-Bold.woff2') format('woff2');
+    font-weight: 600;
     font-style: normal;
     font-display: swap;
 }
@@ -49,6 +55,12 @@ header {
 	margin: .5em auto;
 	--color: color-mix(in lab, #99de99, transparent 70%);
 
+	a {
+		text-decoration: none;
+	}
+	h1:hover {
+		--color: color-mix(in lab, #99de99, transparent 70%);
+	}
 	a:focus, span:hover {
 		--color: color-mix(in lab, #99de99, transparent 30%);
 	}
@@ -124,7 +136,7 @@ p {
 a, a:visited {
 	color: inherit;
 }
-a:hover, a:focus, span:hover, h1:hover {
+:is(a, span, h1):is(:focus, :hover) {
 	--color: color-mix(in lab, #47bd47, transparent);
 }
 
@@ -341,5 +353,17 @@ footer {
 		text-indent: 0;
 		margin: 2em auto 1em;
 		max-width: 25em;
+		position: relative;
+
+		&::before {
+			content: '?';
+			position: absolute;
+			font-size: 3em;
+			opacity: 0.2;
+			font-weight: bolder;
+			top: -0.3em;
+			left: -0.3em;
+			line-height: 1;
+		}
 	}
 }
