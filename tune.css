@@ -26,16 +26,15 @@ html {
 	--color: color-mix(in lab, #99de99, transparent);
 	--b: 2px;
 	font-size: 100%;
-	font-family: "Libertinus Serif", Palatino, Georgia, 'Times New Roman', Times, serif;
-	background-color: #9bbe9b;
-	font-feature-settings: "onum" on;
+	font-family: "Shape Libertine", Linux Libertine, Libertinus, Palatino, Georgia, 'Times New Roman', Times, serif;
+	background-color: #5c955c;
+	font-feature-settings: "onum" on, "liga" on, "shps" on;
 	line-height: 1.5;
 	/*background: url('./convention2025.jpeg') center/cover no-repeat fixed;*/
 }
 body {
 	margin: 0 auto;
 	max-width: 20in;
-	background-color: #9bbe9bdd;
 	padding: .5em;
 	font-size: clamp(1.5rem, 1.6vw + 1rem, 2rem);
 	min-height: 100vh;
@@ -52,9 +51,10 @@ header {
 	text-align: center;
 	color: white;
 	margin: .5em auto;
+	--color: color-mix(in lab, #99de99, transparent 70%);
 
 	a:focus, span:hover {
-		--color: #a6dba6;
+		--color: color-mix(in lab, #99de99, transparent 30%);
 	}
 
 	:is(.fa, .sol, .la, .mi)::before {
@@ -114,10 +114,6 @@ nav {
 
 		&:hover, &:focus {
 			background: color-mix(in lab, #99de99, whitesmoke);
-		}
-
-		& + & {
-			/*border-left: 1px solid white;*/
 		}
 
 		&:is(.fa, .sol, .la, .mi)::before {
@@ -237,7 +233,7 @@ aside {
 }
 
 footer {
-	padding: 1em 1.5em;
+	padding: 1em clamp(1.5rem, 5vw, 3rem);
 	max-width: 10in;
 	margin-inline: auto;
 	color: #dfebdf;
@@ -250,38 +246,34 @@ footer {
 		font-size: 1.5rem;
 		text-align: center;
 	}
+	h3 {
+		font-size: 1em;
+		font-weight: bolder;
+		margin: 0;
+	}
 	ul {
 		list-style: none;
 		padding: 0;
 		margin: 0;
-		columns: auto 16rem;
-		column-gap: 3rem;
-		/*display: flex;*/
-		/*gap: 3rem;*/
-		/*flex-wrap: wrap;*/
-		/*justify-content: space-between;*/
+		display: flex;
+		gap: 1.5em 3em;
+		flex-wrap: wrap;
+		justify-content: space-around;
+		margin-top: 1.5em;
 	}
 	li {
-		/*background: linear-gradient(transparent 58%, #9bbe9b 58% 62%, transparent 62%);*/
-		display: flex;
-		justify-content: space-between;
-		gap: 1em;
 		line-height: 1.2;
-		break-inside: avoid-column;
-		/*text-align: center;*/
+		text-align: center;
+		flex: 1 0 8em;
+
+		span {
+			display: block;
+		}
 	}
-	li + li {
-		margin-top: 1ch;
-	}
-	li span {
-		/*display: block;*/
-		/*background: #537f53;*/
-		/*padding-right: 1ch;*/
-		text-wrap: balance;
-	}
-	li span + span {
-		/*padding-right: 0;*/
-		/*padding-left: 1ch;*/
-		text-align: right;
+
+	p {
+		text-indent: 0;
+		margin: 2em auto 1em;
+		max-width: 25em;
 	}
 }
