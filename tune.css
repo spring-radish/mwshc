@@ -220,6 +220,10 @@ dd {
 		border-color: color-mix(in lab, #47bd47, transparent);
 	}
 }
+dl ul {
+	font-size: .75em;
+	list-style: none;
+}
 
 aside {
 	font-size: 0.75em;
