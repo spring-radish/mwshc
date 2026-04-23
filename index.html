@@ -21,10 +21,10 @@
 </head>
 <body>
 	<header id="top">
-		<a href="home.html" target="main"><h1><span class="fa">41<sup>st</sup></span> <span class="sol">Midwest</span> <span class="la">Conven</span><span class="mi">tion</span></h1></a>
+		<button type="button"><h1><span class="fa">41<sup>st</sup></span> <span class="sol">Midwest</span> <span class="la">Conven</span><span class="mi">tion</span></h1></button>
 	</header>
 
-	<section>
+	<section id="intro">
 		<p>The Illinois Sacred Harp Singers warmly invite you to the <span class="fa" style="animation-delay:1s">41<sup>st</sup> annual Midwest Convention</span>.</p>
 		<p>Please join us <a href="#schedule">May <span class="sol" style="animation-delay:2s">30<sup>th</sup></span> and 31<sup>st</sup></a>, 2026, at the <a href="#location" class="la" style="animation-delay:3s">Broadway Armory</a> in Chicago. We’ll have two days full of singing from <em>The Sacred Harp</em> 2025 revision.</p>
 		<p>Admission is free and open to all, regardless of musical experience! We really would <span class="mi" style="animation-delay:4s">love to have you</span>. We’re still ironing out all the details, but will keep this page updated as we go.</p>
@@ -183,5 +183,17 @@
 		</ul>
 		<p>The Midwest Convention is typically held on the second fifth Sunday of the year, or the last Sunday of May — whichever is earlier — and the Saturday before.</p>
 	</footer>
+	<script>
+		const title = document.querySelector("#top button")
+		const intro = document.querySelector("#intro")
+		const introAnimations = intro.getAnimations({ subtree: true })
+
+		title.addEventListener("click", (_) => {
+			introAnimations.forEach(animation => {
+				animation.cancel()
+				animation.play()
+			})
+		})
+	</script>
 </body>
 </html>
