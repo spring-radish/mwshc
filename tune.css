@@ -293,8 +293,9 @@ figcaption {
 	}
 }
 
-dl {
+dl, .block-list {
 	margin: 0;
+	list-style: none;
 }
 dt, .inframe h1 {
 	/*color: #3a7b3a;*/
@@ -302,7 +303,7 @@ dt, .inframe h1 {
 dt {
 	font-style: italic;
 }
-dd {
+dd, .block-list li {
 	margin-left: .25em;
 	margin-block: .25em .5em;
 	padding-left: .5em;
@@ -343,6 +344,10 @@ details {
 }
 .details-inner {
 	padding: .5em;
+
+	.block-list {
+		padding: 0;
+	}
 }
 
 aside {
