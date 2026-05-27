@@ -526,6 +526,7 @@ footer {
 	grid-template-columns: min-content 1fr;
 	gap: .5em 1em;
 	padding: 1em;
+	align-items: center;
 	
 
 	> * {
@@ -544,6 +545,7 @@ footer {
 		background: linear-gradient(#dceadc, #b3dbb3);
 		justify-self: end;
 		margin-right: 2ch;
+		align-self: stretch;
 	}
 }
 
