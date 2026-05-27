@@ -439,7 +439,7 @@ footer {
 	article {
 		background: whitesmoke;
 		border: 1px solid var(--b-mint);
-		flex: 1 0 15rem;
+		flex: 1 0 min(100%, 18rem);
 	}
 	header {
 	    background: var(--c-sage);
