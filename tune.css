@@ -257,6 +257,10 @@ figcaption {
 	background: var(--color);
 }
 
+#intro :is(.fa, .sol, .la, .mi)::before {
+	animation-play-state: paused;
+}
+
 .fa::before {
 	clip-path: polygon(0 100%,0 0,100% 100%,0 100%,var(--b) calc(100% - var(--b)),calc(100% - var(--b)/tan(19deg)) calc(100% - var(--b)),var(--b) calc(var(--b)/tan(24deg)),var(--b) calc(100% - var(--b)));
 	clip-path: polygon(0 100%,0 0,100% 100%,0 100%);

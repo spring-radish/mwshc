@@ -21,8 +21,13 @@
 </head>
 <body>
 	<header id="top">
-		<button type="button"><h1><span class="fa">41<sup>st</sup></span> <span class="sol">Midwest</span> <span class="la">Conven</span><span class="mi">tion</span></h1></button>
+		<a href="#intro"><h1><span class="fa">41<sup>st</sup></span> <span class="sol">Midwest</span> <span class="la">Conven</span><span class="mi">tion</span></h1></a>
 	</header>
+
+	<section style="background:var(--c-sage);color:#fff">
+		<p>We cannot thank you enough for joining us with your voices loud and hearts open. Mark your calendars for May 29<sup>th</sup> and 30<sup>th</sup>, 2027, to return to Chicago.</p>
+		<p>We are eager to gather any photographs and reflections you may be willing to share from this year’s convention. They can be emailed to <a href="mailto:mail+shape@sprig.site">Rosemary</a> or your local contact. Sing on!</p>
+	</section>
 
 	<section id="intro">
 		<p>The Illinois Sacred Harp Singers warmly invite you to the <span class="fa" style="animation-delay:1s">41<sup>st</sup> annual Midwest Convention</span>.</p>
@@ -243,7 +248,11 @@
 		</ul>
 		<ul>
 			<li>
-				<h3>Arranging</h3>
+				<h3>Secretary</h3>
+				<span>Mary Rogel</span>
+			</li>
+			<li>
+				<h3>Arranging Committee</h3>
 				<span>Carolyn Deacy</span>
 				<span>Kathy Williams</span>
 			</li>
@@ -267,16 +276,30 @@
 		<p>The Midwest Convention is typically held on the second fifth Sunday of the year, or the last Sunday of May — whichever is earlier — and the Saturday before.</p>
 	</footer>
 	<script>
-		const title = document.querySelector("#top button")
+		const title = document.querySelector("#top a")
 		const intro = document.querySelector("#intro")
 		const introAnimations = intro.getAnimations({ subtree: true })
 
-		title.addEventListener("click", (_) => {
+		title.addEventListener("click", playAnimations)
+
+		function playAnimations(_e) {
 			introAnimations.forEach(animation => {
 				animation.cancel()
 				animation.play()
 			})
+		}
+
+		const observer = new IntersectionObserver(observerHandler, {
+			threshold: 0.3
 		})
+
+		observer.observe(intro)
+
+		function observerHandler(arr) {
+			if (!arr.find((el) => el.isIntersecting === true)) return
+			playAnimations(null)
+			observer.unobserve(intro)
+		}
 	</script>
 </body>
 </html>
